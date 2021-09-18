@@ -1,0 +1,15 @@
+{
+  "name": "dynamic-link",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "njfamirm <njfamirm@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "serve": "node dist/index.js",
+    "start": "yarn build && yarn serve"
+  }
+}
