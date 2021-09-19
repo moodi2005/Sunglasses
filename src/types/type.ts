@@ -1,3 +1,5 @@
+import { OneDB } from "../1db/1db";
+
 // status code
 export const statusCodeOK = 200;
 export const statusCodeBadRequest = 400;
@@ -21,3 +23,6 @@ export interface Result {
   twitter: string;
   github: string;
 }
+
+// db
+export const profileDB = new OneDB("./data/profiles.json");
