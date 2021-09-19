@@ -15,4 +15,9 @@ export interface RequestResponse {
   result?: Result;
 }
 
-interface Result {}
+export interface Result {
+  username: string;
+  email: string;
+  twitter: string;
+  github: string;
+}

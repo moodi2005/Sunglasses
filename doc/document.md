@@ -17,14 +17,14 @@ valid and unique email
 <!-- if not valid returned error code -->
 <!-- if not unique returned error code -->
 
-#### Github `optional`
+#### Github `require`
 
 github user name
 
 <!-- if not valid returned error code -->
 <!-- if not unique returned error code -->
 
-#### Twitter `optional`
+#### Twitter `require`
 
 twitter user name
 
