@@ -5,11 +5,15 @@
   "author": "njfamirm <njfamirm@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^16.9.2",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "http-server": "^13.0.2"
   },
   "scripts": {
     "build": "tsc",
-    "serve": "node dist/index.js",
+    "serve": "node dist/src/server.js",
     "start": "yarn build && yarn serve"
   }
 }
