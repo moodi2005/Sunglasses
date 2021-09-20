@@ -3,3 +3,9 @@ node_modules/
 
 # js compiled
 dist/
+
+# data
+data/
+
+# log
+yarn-error.log

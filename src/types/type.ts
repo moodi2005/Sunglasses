@@ -1,4 +1,4 @@
-import { OneDB } from "../1db/1db";
+import { DocumentRecord, OneDB } from "../1db/1db";
 
 // status code
 export const statusCodeOK = 200;
@@ -23,6 +23,15 @@ export interface Result {
   twitter: string;
   github: string;
 }
+
+export interface ResultDB extends DocumentRecord {
+  username: string;
+  email: string;
+  twitter: string;
+  github: string;
+}
+
+export type message = "OK" | "ERROR" | "NOT EXIST";
 
 // db
 export const profileDB = new OneDB("./data/profiles.json");

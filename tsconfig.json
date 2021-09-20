@@ -14,12 +14,13 @@
     "skipLibCheck": true,
     "importHelpers": true,
     "noImplicitAny": true,
-    "noUnusedLocals": true,
+    // "noUnusedLocals": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
   }
 }

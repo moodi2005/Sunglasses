@@ -1,4 +1,4 @@
-import { Result } from "./types/type";
+import { Result, profileDB } from "./types/type";
 
 // regexs
 const urlRegex = new RegExp(
@@ -41,4 +41,19 @@ export function parseURL(url: string): Result | null {
   };
 
   return data;
+}
+
+// parse user name from url | get profile
+export function getUsername(url: string) {
+  const username = usernameRegex.exec(url);
+  if (username === null) return;
+  return username[0];
+}
+
+export async function checkUsernameExist(username: string): Promise<boolean> {
+  const exist = await profileDB.get(username);
+  if (exist != undefined) {
+    return true;
+  }
+  return false;
 }
