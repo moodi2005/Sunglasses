@@ -20,8 +20,8 @@ export interface RequestResponse {
 export interface Result {
   username: string;
   email: string;
-  twitter: string;
-  github: string;
+  twitter?: string;
+  github?: string;
 }
 
 export interface ResultDB extends DocumentRecord {
