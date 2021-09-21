@@ -1,15 +1,13 @@
 import { createServer, IncomingMessage, ServerResponse } from "http";
 import { hostName, port } from "../config/config.json";
 import { CreateProfile, getProfile } from "./handler/profileApi";
-import { serveHtml } from "./handler/serve";
+import { serveHtml, serveStatic } from "./handler/serve";
 import { checkUsernameExist } from "./regex";
-import { Server } from "node-static";
 
 const regexSetProfileApi = new RegExp(`^api\/createProfile\\?`);
 const regexGetProfileApi = new RegExp(`^api\/getProfile\\?`);
 const regexGetProfile = new RegExp(`[a-zA-Z0-9]+`);
-
-const file = new Server("./static");
+const staticRegex = new RegExp(`^static\/.*`);
 
 const server = createServer(
   async (req: IncomingMessage, resp: ServerResponse) => {
@@ -19,10 +17,11 @@ const server = createServer(
     if (url === undefined) return;
 
     if (url === "favicon.ico") {
+      // favoicon
       return;
-    } else if (url === "public") {
-      console.log("ok");
-      file.serve(req, resp);
+    } else if (staticRegex.test(url)) {
+      // serve static files
+      serveStatic(req, resp);
     } else if (regexSetProfileApi.test(url)) {
       // api/
       CreateProfile(req, resp);

@@ -1,6 +1,7 @@
-import { readFile } from "fs";
+import { createReadStream, readFile } from "fs";
 import { RequestResponse, Result, message } from "../types/type";
 import { IncomingMessage, ServerResponse } from "http";
+import { join } from "path";
 
 // send result to user
 export function serveJson(
@@ -35,4 +36,36 @@ export function serveHtml(
     resp.write(html);
     resp.end();
   });
+}
+
+export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
+  var path = req.url;
+  if (path === undefined) return;
+  path = path.replace("static/", "");
+  const fileExtension = path.split(".").pop();
+  var contentType: string;
+  var staticPath = "./static/";
+
+  switch (fileExtension) {
+    case "svg":
+      contentType = "image/svg+xml";
+      break;
+    case "css":
+      contentType = "text/css";
+      break;
+    case "png":
+      contentType = "image/png";
+      break;
+    case "jpg":
+      contentType = "image/jpeg";
+      break;
+    default:
+      staticPath = "./dist/static/";
+      contentType = "text/javascript";
+  }
+
+  const filePath = join(staticPath, path);
+  const files = createReadStream(filePath);
+  resp.setHeader("Content-Type", contentType);
+  files.pipe(resp);
 }

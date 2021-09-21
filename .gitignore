@@ -3,9 +3,11 @@ node_modules/
 
 # js compiled
 dist/
+*.js
+*.js.map
 
 # data
-data/
+data/profiles.json
 
 # log
 yarn-error.log
