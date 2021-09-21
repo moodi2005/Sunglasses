@@ -3,8 +3,6 @@ node_modules/
 
 # js compiled
 dist/
-*.js
-*.js.map
 
 # data
 data/profiles.json
