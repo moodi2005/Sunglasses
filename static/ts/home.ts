@@ -6,7 +6,7 @@ function onScrollSwap() {
     (swapText as any).style.letterSpacing = "4em";
   } else if (window.scrollY < 100) {
     (swapText as any).style.opacity = "100%";
-    (swapText as any).style.letterSpacing = "3px";
+    (swapText as any).style.letterSpacing = "0";
   }
 }
 document.addEventListener("scroll", onScrollSwap);

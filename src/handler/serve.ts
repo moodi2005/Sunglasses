@@ -47,6 +47,10 @@ export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
   var staticPath = "./static/";
 
   switch (fileExtension) {
+    case "ico":
+      contentType = "image/x-icon";
+      staticPath = "./static/img/";
+      break;
     case "svg":
       contentType = "image/svg+xml";
       break;
@@ -59,13 +63,16 @@ export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
     case "jpg":
       contentType = "image/jpeg";
       break;
+    case "ts":
+      contentType = "text/x.typescript";
+      break;
     default:
       staticPath = "./dist/static/";
       contentType = "text/javascript";
   }
-
   const filePath = join(staticPath, path);
   const files = createReadStream(filePath);
   resp.setHeader("Content-Type", contentType);
+  resp.statusCode = 200;
   files.pipe(resp);
 }

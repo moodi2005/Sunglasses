@@ -52,12 +52,12 @@ body {
 
 .container header .links > * {
   border-radius: 2px;
-  padding: 2px;
+  padding: 1vw;
   user-select: none;
   cursor: pointer;
   font-size: 1.8vw;
   list-style: none;
-  margin: 0 20px;
+  margin: 0 1vw;
   transition: color 0.3s;
 }
 
@@ -66,7 +66,8 @@ body {
 }
 
 .container .main {
-  padding: 20px;
+  margin-top: 2.1vw;
+  padding: 2vw;
   color: var(--dark-color);
   flex-grow: 1;
   display: flex;
@@ -77,7 +78,7 @@ body {
 .container .main .main-sunglasses {
   user-select: none;
   float: right;
-  width: 30vw;
+  width: 40vw;
   transition: filter 0.5s;
 }
 
@@ -100,10 +101,9 @@ body {
 
 .container .swap {
   color: var(--there-color);
-  letter-spacing: 3px;
   opacity: 60%;
   text-align: center;
-  margin: 10px;
+  margin: 0.5vw;
   font-size: 1.2vw;
   transition: opacity 2s, letter-spacing 1s;
 }
@@ -142,7 +142,8 @@ body {
 }
 
 .footer {
-  padding: 10vh 2vw;
+  margin-top: 10vh;
+  padding: 1vh 2vw;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 30px 0 var(--shadow-color);
@@ -151,5 +152,6 @@ body {
 
 .footer > * {
   text-decoration: none;
+  font-size: 1.5vw;
   color: var(--light-clor);
 }

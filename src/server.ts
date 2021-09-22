@@ -20,6 +20,7 @@ const server = createServer(
       serveHtml(req, resp, "./static/home.html", 200);
       return;
     } else if (url === "favicon.ico") {
+      serveStatic(req, resp);
       return;
     }
 
@@ -48,35 +49,6 @@ const server = createServer(
         // 404 page
         serveHtml(req, resp, "./static/404.html", 404);
     }
-
-    //   if (url === "favicon.ico") {
-    //     // favoicon
-    //     return;
-    //   } else if (staticRegex.test(url)) {
-    //     // serve static files
-    //     serveStatic(req, resp);
-    //   } else if (regexSetProfileApi.test(url)) {
-    //     // api/
-    //     CreateProfile(req, resp);
-    //   } else if (regexGetProfileApi.test(url)) {
-    //     // profile
-    //     getProfile(req, resp);
-    //   } else if (url === "") {
-    //     // homa page
-    //     serveHtml(req, resp, "./static/home.html", 200);
-    //   } else if (regexGetProfile.test(url)) {
-    //     // if profile exist
-    //     if (await checkUsernameExist(url)) {
-    //       serveHtml(req, resp, "./static/profile.html", 200);
-    //     } else {
-    //       // if profile not exist
-    //       serveHtml(req, resp, "./static/404.html", 404);
-    //     }
-    //     } else {
-    //       // 404 page
-    //       serveHtml(req, resp, "./static/404.html", 404);
-    //     }
-    //   }
   }
 );
 
