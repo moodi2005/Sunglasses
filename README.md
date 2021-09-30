@@ -1,5 +1,5 @@
 <div align="center" width="100%">
-  <img src="./static/img/logo.svg" style="width: 50%; align-item:center;" />
+  <img src="./src/public/img/logo.svg" style="width: 50%; align-item:center;" />
 </div>
 
 # sunglasses
