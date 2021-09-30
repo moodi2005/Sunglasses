@@ -1,7 +1,7 @@
 import { createServer, IncomingMessage, ServerResponse } from "http";
-import { hostName, port } from "../config/config.json";
-import { CreateProfile, getProfile } from "./handler/profileApi";
-import { serveHtml, serveStatic } from "./handler/serve";
+import { hostName, port } from "../../config/config.json";
+import { CreateProfile, getProfile } from "./controllers/profileApi";
+import { serveHtml, serveStatic } from "./controllers/serve";
 import { checkUsernameExist } from "./regex";
 
 const regexSetProfileApi = new RegExp(`^api\/createProfile\\?`);

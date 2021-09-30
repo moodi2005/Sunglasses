@@ -3,9 +3,13 @@ node_modules/
 
 # js compiled
 dist/
+*.js
 
 # data
 data/profiles.json
 
 # log
 yarn-error.log
+
+# webpack
+!webpack.config.js

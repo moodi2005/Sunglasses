@@ -1,9 +1,14 @@
+// var isTyping = true;
 function onScroll() {
   var swapText = document.querySelector(".swap-text");
   // var isText = document.querySelector(".is");
-  // if (window.screenY > isText.getBoundingClientRect().top) {
-  // typing();
   if (swapText === null) return;
+
+  // if (window.screenY > isText.getBoundingClientRect().top) {
+  // if (isTyping) {
+  // isTyping = false;
+  // typing();
+  // }
   if (window.scrollY > 150) {
     (swapText as any).style.bottom = "100vh";
     (swapText as any).style.opacity = "0";
@@ -15,9 +20,8 @@ function onScroll() {
 
 document.addEventListener("scroll", onScroll);
 
-// var isText = document.querySelector(".is");
-// typing();
 // function typing() {
+//   var isText = document.querySelector(".is");
 //   if (isText === null) return;
 
 //   var txt = "Are these reasons not enough to use sunglasses?";
