@@ -64,7 +64,7 @@ export class Header extends LitElement {
       <header>
         <a src="/"
           ><img
-            src="../public/img/logo.svg"
+            src="/public/img/logo.svg"
             title="Sunglasses logo"
             class="logo"
             alt="sunglasses logo"

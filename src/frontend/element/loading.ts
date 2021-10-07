@@ -4,6 +4,12 @@ import { customElement } from "lit/decorators.js";
 @customElement("s-loading")
 export class Loader extends LitElement {
   static styles = css`
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :host {
       --dark-color: #1f1e26;
     }
@@ -25,7 +31,7 @@ export class Loader extends LitElement {
   render() {
     return html`
       <div class="loader">
-        <img src="../public/img/logo.svg" />
+        <img src="/public/img/logo.svg" />
       </div>
     `;
   }

@@ -23,9 +23,7 @@ export class Home extends LitElement {
     return html`
       <s-header></s-header>
       <s-banner></s-banner>
-      <s-about
-        heading="Create a CV for your future"
-        src="../public/img/photo.jpg"
+      <s-about heading="Create a CV for your future" src="/public/img/photo.jpg"
         >Writing a CV is a tedious chore. Boring, confusing, time-consuming.
         With the Zety CV maker, you’ll create a document that shows you at your
         best—fast. Get the job you want, not whatever’s on offer:</s-about
@@ -33,7 +31,7 @@ export class Home extends LitElement {
       <s-about
         heading="Golden opportunities"
         order="-1"
-        src="../public/img/photo.jpg"
+        src="/public/img/photo.jpg"
         >Don’t let opportunities pass you by. You’ll be skeptical at first. Just
         like millions of users who landed their dream jobs with help from our CV
         editor.</s-about
@@ -45,7 +43,7 @@ export class Home extends LitElement {
       <s-about
         heading="Less than drinking a cup of coffee"
         order="-1"
-        src="../public/img/photo.jpg"
+        src="/public/img/photo.jpg"
       >
         FAST You’ll make a CV in minutes. You should be out there building a
         career, not fixing the margin size on your CV. Zety’s CV helper gives

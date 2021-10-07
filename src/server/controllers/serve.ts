@@ -41,15 +41,15 @@ export function serveHtml(
 export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
   var path = req.url;
   if (path === undefined) return;
-  path = path.replace("static/", "");
+  path = path.replace("public/", "");
   const fileExtension = path.split(".").pop();
   var contentType: string;
-  var staticPath = "./static/";
+  var staticPath = "./src/public/";
 
   switch (fileExtension) {
     case "ico":
       contentType = "image/x-icon";
-      staticPath = "./static/img/";
+      staticPath = "./src/public/img";
       break;
     case "svg":
       contentType = "image/svg+xml";
@@ -67,7 +67,7 @@ export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
       contentType = "text/x.typescript";
       break;
     default:
-      staticPath = "./dist/static/";
+      staticPath = "./src/public";
       contentType = "text/javascript";
   }
   const filePath = join(staticPath, path);

@@ -3,7 +3,10 @@ const path = require("path")
 module.exports = {
   mode: "production",
   devtool: "eval-source-map",
-  entry: "./src/frontend/home.ts",
+  entry: {
+    home: "./src/frontend/home.ts",
+    profile: "./src/frontend/profile.ts"
+  },
   module: {
     rules: [
       {
@@ -18,7 +21,7 @@ module.exports = {
     extensions: [".ts", ".js"]
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "src", "public")
+    filename: "[name].js",
+    path: path.resolve(__dirname, "src", "public", "js")
   }
 }

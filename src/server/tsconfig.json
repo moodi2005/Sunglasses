@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "outDir": "../dist/",
+    "outDir": "../../dist/",
     "declaration": false,
     "skipLibCheck": true,
     "importHelpers": true,

@@ -18,7 +18,6 @@ export class Footer extends LitElement {
     }
 
     footer {
-      width: 100vw;
       margin-top: 10vh;
       display: flex;
       justify-content: space-between;
@@ -61,7 +60,7 @@ export class Footer extends LitElement {
       <footer>
         <p>Copyright © 2021, All Right Reserved Sunglasses</p>
         <div class="link">
-          <a>Home</a>
+          <a href="/">Home</a>
           <a>Terms</a>
           <a>Privacy Policy</a>
           <a>Contact</a>

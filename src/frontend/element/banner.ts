@@ -88,7 +88,7 @@ export class Banner extends LitElement {
           </p>
         </div>
         <img
-          src="../public/img/sunglasses.svg"
+          src="/public/img/sunglasses.svg"
           title="be a professional with sun gelasses"
           class="sunglasses"
           alt="sunglasses"
