@@ -15,7 +15,7 @@ to have own Curriculum vitae<br>
 
 you can add user with api
 
-`api/createProfile?username={username}&email={email}&twitter={twitter userame}&githu{github userame}`
+`api/createProfile?username={username}&email={email}&twitter={twitter userame}&github{github userame}`
 
 get user CV with username
 
