@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import axios from "axios";
 
 interface UserData {
@@ -27,7 +27,6 @@ export class UserProfile extends LitElement {
       --there-color: #4f5950;
       --shadow-color: rgba(0, 1, 26, 0.17);
 
-      width: 100vw;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -57,13 +56,8 @@ export class UserProfile extends LitElement {
     }
   `;
 
-  static get properties() {
-    return {
-      data: { type: Object },
-    };
-  }
-
-  private data: UserData = { username: "", email: "" };
+  @property({ type: Object })
+  data: UserData = { username: "", email: "" };
 
   connectedCallback() {
     super.connectedCallback();
@@ -76,9 +70,9 @@ export class UserProfile extends LitElement {
     const result = await axios.get(
       `http://localhost:8000/api/getProfile?username=${username}`
     );
-    const dataa: UserData = (<any>result).data.result;
-    console.log(dataa);
-    this.data = dataa;
+    const data: UserData = (<any>result).data.result;
+    this.data = data;
+    this.requestUpdate();
   }
 
   render() {

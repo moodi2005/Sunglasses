@@ -29,6 +29,7 @@
     "rmDist": "rm -rf dist/",
     "serve": "node dist/src/server/server.js",
     "build-ui": "webpack",
-    "build": "yarn rmDist && yarn build-ui && yarn build-ts"
+    "build": "yarn rmDist && yarn build-ui && yarn build-ts",
+    "start": "yarn build && yarn serve"
   }
 }
