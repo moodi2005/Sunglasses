@@ -1,9 +1,9 @@
 import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 
-import "./element/userData";
-import "./element/header";
-import "./element/footer";
+import "./components/userData";
+import "./components/header";
+import "./components/footer";
 
 @customElement("s-profile")
 export class Profile extends LitElement {

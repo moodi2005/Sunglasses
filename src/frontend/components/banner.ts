@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 
 @customElement("s-banner")
 export class Banner extends LitElement {
@@ -80,12 +80,8 @@ export class Banner extends LitElement {
     return html`
       <div class="banner">
         <div class="slogan">
-          <h1>CV for your future</h1>
-          <p class="about">
-            If a sheet of paper represents your entire work life, personality,
-            and skills, it better be a pretty amazing piece of paper— Let Zety
-            do the heavy lifting.
-          </p>
+          <h1>${this.heading}</h1>
+          <p class="about">${this.innerHTML}</p>
         </div>
         <img
           src="/public/img/sunglasses.svg"
@@ -99,4 +95,6 @@ export class Banner extends LitElement {
       </div>
     `;
   }
+
+  @property({ type: String }) heading!: string;
 }

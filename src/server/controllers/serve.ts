@@ -51,6 +51,10 @@ export function serveStatic(req: IncomingMessage, resp: ServerResponse) {
       contentType = "image/x-icon";
       staticPath = "./src/public/img";
       break;
+    case "json":
+      contentType = "application/json";
+      staticPath = "./src/public/";
+      break;
     case "svg":
       contentType = "image/svg+xml";
       break;

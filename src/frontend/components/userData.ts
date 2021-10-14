@@ -27,6 +27,7 @@ export class UserProfile extends LitElement {
       --there-color: #4f5950;
       --shadow-color: rgba(0, 1, 26, 0.17);
 
+      /* flex-grow: 1; */
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -54,6 +55,21 @@ export class UserProfile extends LitElement {
       text-decoration: none;
       color: var(--dark-color);
     }
+
+    .unloaded {
+      display: flex;
+      flex-direction: column;
+      width: 30vw;
+      height: 30vh;
+    }
+
+    .unloaded > * {
+      flex-grow: 1;
+      margin: 1vh 1vw;
+      background-color: var(--there-color);
+      opacity: 0.1;
+      border-radius: 6px;
+    }
   `;
 
   @property({ type: Object })
@@ -76,8 +92,7 @@ export class UserProfile extends LitElement {
   }
 
   render() {
-    return html`
-      <h1 class="username">${this.data.username}</h1>
+    const loaded = html` <h1 class="username">${this.data.username}</h1>
       <p class="id">
         Email:
         <a target="_blank" href="mailto:${this.data.email}"
@@ -97,7 +112,21 @@ export class UserProfile extends LitElement {
         <a target="_blank" href="https://github.com/${this.data.github}"
           >${this.data.github}</a
         >
-      </p>
+      </p>`;
+
+    const unLoaded = html`
+      <div class="unloaded">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     `;
+
+    if (this.data.username === "") {
+      return html`${unLoaded}`;
+    } else {
+      return html`${loaded}`;
+    }
   }
 }

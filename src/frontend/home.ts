@@ -1,10 +1,11 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
-import "./element/header";
-import "./element/loading";
-import "./element/banner";
-import "./element/footer";
-import "./element/about";
+import { customElement, property } from "lit/decorators.js";
+import axios from "axios";
+import "./components/header";
+import "./components/loading";
+import "./components/banner";
+import "./components/footer";
+import "./components/about";
 import "./script/loader";
 
 @customElement("s-home")
@@ -19,40 +20,53 @@ export class Home extends LitElement {
       font-family: "Ubuntu", sans-serif;
     }
   `;
+
   render() {
-    return html`
-      <s-header></s-header>
-      <s-banner></s-banner>
-      <s-about heading="Create a CV for your future" src="/public/img/photo.jpg"
-        >Writing a CV is a tedious chore. Boring, confusing, time-consuming.
-        With the Zety CV maker, you’ll create a document that shows you at your
-        best—fast. Get the job you want, not whatever’s on offer:</s-about
-      >
-      <s-about
-        heading="Golden opportunities"
-        order="-1"
-        src="/public/img/photo.jpg"
-        >Don’t let opportunities pass you by. You’ll be skeptical at first. Just
-        like millions of users who landed their dream jobs with help from our CV
-        editor.</s-about
-      >
-      <s-about heading="Be professional" src="../public/img/photo.jpg"
-        >See for yourself. Choose between 20+ professional CV templates, fill in
-        the blanks, and have the CV wizard help you from start to finish.
-      </s-about>
-      <s-about
-        heading="Less than drinking a cup of coffee"
-        order="-1"
-        src="/public/img/photo.jpg"
-      >
-        FAST You’ll make a CV in minutes. You should be out there building a
-        career, not fixing the margin size on your CV. Zety’s CV helper gives
-        you the format right, modern designs, and fills in tried and tested
-        information. Upload your old CV and give it a makeover. Or create a new
-        one. Either way, you’ll save time.</s-about
-      >
-      <s-footer></s-footer>
-    `;
+    if (this.about === undefined || this.slogan === undefined) {
+      return html`<s-header></s-header>`;
+    } else {
+      return html`
+        <s-header></s-header>
+        <s-banner heading="${this.slogan.heading}"
+          >${this.slogan.text}</s-banner
+        >
+        <s-about heading="${this.about[0].heading}" src="/public/img/photo.jpg"
+          >${this.about[0].text}</s-about
+        >
+        <s-about
+          heading="${this.about[1].heading}"
+          order="-1"
+          src="/public/img/photo.jpg"
+          >${this.about[1].text}</s-about
+        >
+        <s-about
+          heading="${this.about[2].heading}"
+          src="../public/img/photo.jpg"
+          >${this.about[2].text}</s-about
+        >
+        <s-about
+          heading="${this.about[3].heading}"
+          order="-1"
+          src="/public/img/photo.jpg"
+          >${this.about[3].text}</s-about
+        >
+        <s-footer></s-footer>
+      `;
+    }
+  }
+
+  @property({ type: Array }) about!: Array<{ heading: string; text: string }>;
+  @property({ type: Object }) slogan!: { heading: string; text: string };
+
+  async loadText() {
+    const json = await axios.get("http://localhost:8000/public/json/home.json");
+    this.about = (<any>json).data.about;
+    this.slogan = (<any>json).data.slogan;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.loadText();
   }
 }
 
