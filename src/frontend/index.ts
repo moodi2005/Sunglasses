@@ -1,11 +1,11 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, query } from "lit/decorators.js";
+import { setOutlet } from "./router/router";
 
-import "./components/userData";
 import "./components/header";
 import "./components/footer";
 
-@customElement("s-profile")
+@customElement("s-main")
 export class Profile extends LitElement {
   static styles = css`
     @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
@@ -16,13 +16,27 @@ export class Profile extends LitElement {
       box-sizing: border-box;
       font-family: "Ubuntu", sans-serif;
     }
+
+    :host {
+      max-height: 100vh;
+    }
+
+    s-footer {
+      position: relative;
+      bottom: 0;
+    }
   `;
 
   render() {
     return html`
       <s-header></s-header>
-      <s-user-profile></s-user-profile>
+      <div class="main"></div>
       <s-footer></s-footer>
     `;
+  }
+
+  @query(".main") main!: HTMLElement;
+  firstUpdated() {
+    setOutlet(this.main);
   }
 }

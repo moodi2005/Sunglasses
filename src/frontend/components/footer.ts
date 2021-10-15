@@ -18,7 +18,7 @@ export class Footer extends LitElement {
     }
 
     footer {
-      margin-top: 10vh;
+      /* margin-top: 10vh; */
       display: flex;
       justify-content: space-between;
       align-items: center;

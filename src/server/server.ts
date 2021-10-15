@@ -17,7 +17,7 @@ const server = createServer(
     if (url === undefined) return;
 
     if (url === "") {
-      serveHtml(req, resp, "./src/public/home.html", 200);
+      serveHtml(req, resp, "./src/public/index.html", 200);
       return;
     } else if (url === "favicon.ico") {
       serveStatic(req, resp);
@@ -39,7 +39,7 @@ const server = createServer(
         break;
       case regexGetProfile.test(url):
         if (await checkUsernameExist(url)) {
-          serveHtml(req, resp, "./src/public/profile.html", 200);
+          serveHtml(req, resp, "./src/public/index.html", 200);
         } else {
           // if profile not exist
           serveHtml(req, resp, "./src/public/404.html", 404);
@@ -52,4 +52,5 @@ const server = createServer(
   }
 );
 
+console.log(`Serve on http://${hostName}:${port} `);
 server.listen(port, hostName);

@@ -4,8 +4,7 @@ module.exports = {
   mode: "production",
   devtool: "eval-source-map",
   entry: {
-    home: "./src/frontend/home.ts",
-    profile: "./src/frontend/profile.ts"
+    index: "./src/frontend/index.ts"
   },
   module: {
     rules: [

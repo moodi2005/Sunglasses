@@ -95,6 +95,6 @@ export class Banner extends LitElement {
       </div>
     `;
   }
-
-  @property({ type: String }) heading!: string;
+  @property({ type: String })
+  heading!: string;
 }
