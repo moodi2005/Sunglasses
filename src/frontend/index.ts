@@ -4,6 +4,7 @@ import { setOutlet } from "./router/router";
 
 import "./components/header";
 import "./components/footer";
+import "./components/loading";
 
 @customElement("s-main")
 export class Profile extends LitElement {
@@ -15,6 +16,10 @@ export class Profile extends LitElement {
       padding: 0;
       box-sizing: border-box;
       font-family: "Ubuntu", sans-serif;
+    }
+
+    .page {
+      display: none;
     }
 
     :host {
@@ -29,13 +34,28 @@ export class Profile extends LitElement {
 
   render() {
     return html`
-      <s-header></s-header>
-      <div class="main"></div>
-      <s-footer></s-footer>
+      <s-loading></s-loading>
+      <div class="page">
+        <s-header></s-header>
+        <div class="main"></div>
+        <s-footer></s-footer>
+      </div>
     `;
   }
-
   @query(".main") main!: HTMLElement;
+  @query("s-loading") loader!: HTMLElement;
+  @query(".page") page!: HTMLElement;
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.onload = () => {
+      console.log(this.page);
+      this.loader.setAttribute("style", "display: none;");
+      this.page.setAttribute("style", "display: block;");
+      this.requestUpdate();
+    };
+  }
+
   firstUpdated() {
     setOutlet(this.main);
   }

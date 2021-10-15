@@ -36,5 +36,5 @@ We look forward to your participation
 ## Contact us
 
 - [Email](njfamirm@gmail.com)
-- [Twitter](https://twitter.com/njfamirm3)
+- [Twitter](https://twitter.com/njfamirm)
 - [Telegram](https://t.me/njfamirm)
