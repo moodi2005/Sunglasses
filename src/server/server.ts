@@ -7,7 +7,8 @@ import { checkUsernameExist } from "./regex";
 const regexSetProfileApi = new RegExp(`^api\/createProfile\\?`);
 const regexGetProfileApi = new RegExp(`^api\/getProfile\\?`);
 const regexGetProfile = new RegExp(`[a-zA-Z0-9]+`);
-const staticRegex = new RegExp(`^public\/.*`);
+const staticRegex = new RegExp(`^(public\/.*|favicon.ico)$`);
+const homeRegex = new RegExp(`^$`);
 
 const server = createServer(
   async (req: IncomingMessage, resp: ServerResponse) => {
@@ -16,17 +17,13 @@ const server = createServer(
 
     if (url === undefined) return;
 
-    if (url === "") {
-      serveHtml(req, resp, "./src/public/index.html", 200);
-      return;
-    } else if (url === "favicon.ico") {
-      serveStatic(req, resp);
-      return;
-    }
-
     switch (true) {
+      case homeRegex.test(url):
+        // serve home page
+        serveHtml(req, resp, "./src/public/index.html", 200);
+        break;
       case staticRegex.test(url):
-        // serve static files
+        // serve static files | and favoicon
         serveStatic(req, resp);
         break;
       case regexSetProfileApi.test(url):
